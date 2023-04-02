@@ -1,19 +1,20 @@
 "use client"
-
+import { useState, useEffect } from 'react'
 import Link from "next/link"
 
-async function getData(){
-  const res = await fetch("https://jsonplaceholder.typicode.com/users")
-  const data = await res.json()
-  return {
-    load: true,
-    data: data
-  }
-}
 
 export default function Home() {
-
-    const {data, load} = getData()
+  const [ data, setData ] = useState([])
+  const [ load, setLoad ] = useState(false)
+  useEffect(_=> {
+    getData()
+  }, [])
+  async function getData(){
+    const res = await fetch("https://jsonplaceholder.typicode.com/users")
+    const data = await res.json()
+    setLoad(true)
+    setData(data)
+  }
 
   return (
     <>
