@@ -1,0 +1,37 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: 0;
+}
+body{
+  background: #ddd;
+}
+a{
+  text-decoration: none;
+  color: #000;
+}
+.ele{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 10px;
+  justify-content: center;
+}
+.ele a{
+  width: calc(100% / 4);
+  height: 200px;
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.user{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 21px;
+  box-shadow: 0 0 2px;
+  padding: 10px;
+}
