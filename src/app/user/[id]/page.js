@@ -1,22 +1,23 @@
 "use client"
-import { useState, useEffect } from 'react'
 
 
+async function getData(id){
+  const res = await fetch("https://jsonplaceholder.typicode.com/users")
+  const data = await res.json()
+  const user = data.find(u => u.id == id)
+  return {
+    load: true,
+    data: user
+  }
+
+}
 
 export default function User({ params }) {
-  const [ data, setData ] = useState({})
-  const [ load, setLoad ] = useState(false)
+
   const { id } = params
-  useEffect(_=> {
-    getData()
-  }, [])
-  async function getData(){
-    const res = await fetch("https://jsonplaceholder.typicode.com/users")
-    const data = await res.json()
-    const user = data.find(u => u.id == id)
-    setLoad(true)
-    setData(user)
-  }
+
+    const {load, data} = getData(id)
+
   
   return (
     <>
